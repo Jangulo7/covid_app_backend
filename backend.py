@@ -9,7 +9,7 @@ import io
 # Inicializar la aplicación FastAPI
 app = FastAPI(title="COVID-19 Classification API")
 
-# Configurar CORS
+# Configurar CORS 
 origins = [
     "https://tu-frontend-en-streamlit.com",  # Reemplaza con la URL de tu frontend
     "https://otro-origen-permitido.com",     # Añade otros orígenes permitidos según sea necesario
