@@ -1,11 +1,27 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 import numpy as np
 import tensorflow as tf
 from PIL import Image
 import io
 
+# Inicializar la aplicación FastAPI
 app = FastAPI(title="COVID-19 Classification API")
+
+# Configurar CORS
+origins = [
+    "https://tu-frontend-en-streamlit.com",  # Reemplaza con la URL de tu frontend
+    "https://otro-origen-permitido.com",     # Añade otros orígenes permitidos según sea necesario
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Permite solicitudes solo de los orígenes especificados
+    allow_credentials=True,
+    allow_methods=["*"],    # Permite todos los métodos HTTP (GET, POST, etc.)
+    allow_headers=["*"],    # Permite todas las cabeceras
+)
 
 # Load quantized model TFLite
 interpreter = tf.lite.Interpreter(model_path="model/unified_ensemble_model3b_quantized.tflite")
