@@ -11,8 +11,7 @@ app = FastAPI(title="COVID-19 Classification API")
 
 # Configurar CORS 
 origins = [
-    "https://tu-frontend-en-streamlit.com",  # Reemplaza con la URL de tu frontend
-    "https://otro-origen-permitido.com",     # Añade otros orígenes permitidos según sea necesario
+    "https://covidappfront-mqvo7uzzodtf5z4m276kab.streamlit.app/",  # Reemplaza con la URL de tu frontend
 ]
 
 app.add_middleware(
